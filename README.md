@@ -1,2 +1,3 @@
-# aef_sdk
-App Envil Flutter SDK
+# App Anvil Flutter SDK
+
+App Anvil (A2) Flutter SDK

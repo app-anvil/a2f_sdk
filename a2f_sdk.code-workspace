@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"dart.flutterSdkPath": ".fvm/flutter_sdk",
+	}
+}
