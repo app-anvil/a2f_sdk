@@ -1,2 +1,2 @@
 export 'page_content.dart';
-export 'page_scaffold.dart';
+export 'page_skeleton.dart';

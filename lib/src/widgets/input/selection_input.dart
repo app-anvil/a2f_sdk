@@ -7,12 +7,10 @@ import '../spans.dart';
 import 'input.dart';
 
 /// {@template selection_input}
-/// This class provides a simple implementation of
-/// a input with an optional title and a list of selectable options.
-/// The type T must be extends [Selectable] so, the implementation can be
-/// generic.
-/// Use the getter value to show the String representation of the item.
-///
+/// This class provides a simple implementation of an input with an optional
+/// title and a list of selectable options. The type T must be extends
+/// [Selectable] so, the implementation can be generic. Use the getter value to
+/// show the String representation of the item.
 /// {@endtemplate}
 class SelectionInput<T extends Selectable> extends StatelessWidget {
   /// {@macro selection_input}
