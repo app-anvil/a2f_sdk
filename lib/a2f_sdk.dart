@@ -6,6 +6,7 @@ export 'package:flext/flext.dart';
 export 'package:isar/isar.dart';
 export 'package:isar_flutter_libs/isar_flutter_libs.dart';
 export 'package:path_provider/path_provider.dart';
+export 'package:the_umpteenth_logger/the_umpteenth_logger.dart';
 
 export 'src/config/config.dart';
 export 'src/core/core.dart';
