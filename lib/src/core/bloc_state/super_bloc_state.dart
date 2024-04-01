@@ -13,7 +13,7 @@ abstract class SuperBlocState extends Equatable {
     required this.errorMessage,
   }) : assert(
           status == StateStatus.failure && errorMessage != null ||
-              status == StateStatus.success && errorMessage == null,
+              status != StateStatus.failure && errorMessage == null,
           'When status is failure, errorMessage must be not null and vice '
           'versa.',
         );
