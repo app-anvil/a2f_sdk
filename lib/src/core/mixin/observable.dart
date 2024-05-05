@@ -7,7 +7,7 @@ import 'package:rxdart/rxdart.dart';
 
 import '../../../a2f_sdk.dart';
 
-// Old version of the Observable 
+// Old version of the Observable
 mixin Observable<State> on LoggerMixin {
   BehaviorSubject<ObservableEvent<State>>? _subject;
 
@@ -120,7 +120,7 @@ mixin Observable<State> on LoggerMixin {
 //   Stream<S> states({bool subject = true});
 // }
 
-// New version of the Observable 
+// New version of the Observable
 // mixin Observable2<State> on LoggerMixin {
 //   /// Get the stream.
 //   ///

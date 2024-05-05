@@ -15,6 +15,7 @@ export 'src/extensions/extensions.dart';
 export 'src/framework/framework.dart';
 export 'src/mixin/mixin.dart';
 export 'src/models/models.dart';
+export 'src/notifications/notifications.dart';
 export 'src/style/style.dart';
 export 'src/utils/utils.dart';
 export 'src/widgets/widgets.dart';
