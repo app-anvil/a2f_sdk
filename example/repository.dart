@@ -48,8 +48,8 @@ abstract interface class TodoDataSource {
   FutureOr<List<TodoEntity>> fetch();
 }
 
-class TodoInMemoryDataSource
-    implements TodoDataSource, InMemoryDataSource<TodoId, TodoEntity> {
+final class TodoInMemoryDataSource
+    extends InMemoryDataSource<TodoId, TodoEntity> implements TodoDataSource {
   TodoInMemoryDataSource() {
     cache.saveAll({
       1: TodoEntity(id: 1, name: 'Foo'),
@@ -58,18 +58,12 @@ class TodoInMemoryDataSource
   }
 
   @override
-  final Cache<int, TodoEntity> cache = Cache();
-
-  @override
-  List<TodoEntity> get items => cache.items;
-
-  @override
   FutureOr<List<TodoEntity>> fetch() {
     return items;
   }
 }
 
-class TodoRepository
+final class TodoRepository
     extends Repository<TodoId, TodoEntity, TodoRepositoryState> {
   TodoRepository(this._api);
 
@@ -93,7 +87,7 @@ class TodoRepository
   }
 }
 
-class TodoSingletonRepository
+final class TodoSingletonRepository
     extends SingletonRepository<TodoEntity, TodoRepositoryState> {
   TodoSingletonRepository(this._api);
 

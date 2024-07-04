@@ -1,4 +1,4 @@
 import '../core.dart';
 
-abstract interface class InMemorySingletonDataSource<Key, Value>
-    implements SingletonCacheable<Value> {}
+abstract base class InMemorySingletonDataSource<Key, Value>
+    with CachedItem<Value> {}
