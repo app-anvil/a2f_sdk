@@ -10,7 +10,6 @@ export 'src/config/config.dart';
 export 'src/core/core.dart';
 export 'src/extensions/extensions.dart';
 export 'src/framework/framework.dart';
-export 'src/mixin/mixin.dart';
 export 'src/models/models.dart';
 export 'src/style/style.dart';
 export 'src/utils/utils.dart';

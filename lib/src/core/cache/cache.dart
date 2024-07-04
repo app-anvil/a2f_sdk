@@ -1,15 +1,15 @@
-export 'cacheable.dart';
+export 'cached_collection.dart';
+export 'cached_item.dart';
 export 'singleton_cache.dart';
-export 'singleton_cacheable.dart';
 
-class ItemNotFound implements Exception {}
+class ItemNotFoundException implements Exception {}
 
 /// {@template cache}
 /// This class stores a collection of key/value pairs in memory.
 /// The [Key] type is used as a key in the inner map.
 /// {@endtemplate}
 class Cache<Key, Value> {
-  late final _items = <Key, Value>{};
+  final _items = <Key, Value>{};
 
   List<Value> get items => [..._items.values];
 
@@ -30,7 +30,7 @@ class Cache<Key, Value> {
   /// exception.
   Value getOrThrow(Key key) {
     final item = _items[key];
-    if (item == null) throw ItemNotFound();
+    if (item == null) throw ItemNotFoundException();
     return item;
   }
 

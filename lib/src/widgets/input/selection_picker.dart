@@ -16,7 +16,7 @@ class SelectionPicker<T extends Selectable> {
       isScrollControlled: true,
       useRootNavigator: true,
       showDragHandle: true,
-      backgroundColor: context.col.surfaceVariant,
+      backgroundColor: context.col.surfaceContainerHighest,
       builder: (ctx) {
         return _SelectionMbs(options: options);
       },
@@ -38,7 +38,7 @@ class _SelectionMbs<T extends Selectable> extends StatelessWidget {
       height: MediaQuery.sizeOf(context).height * .4,
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
-        color: context.col.surfaceVariant,
+        color: context.col.surfaceContainerHighest,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular($style.corners.card),
           topRight: Radius.circular($style.corners.card),

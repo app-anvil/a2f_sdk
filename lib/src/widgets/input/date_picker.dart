@@ -22,7 +22,7 @@ class DatePicker {
         useRootNavigator: true,
         isScrollControlled: true,
         enableDrag: true,
-        backgroundColor: context.col.surfaceVariant,
+        backgroundColor: context.col.surfaceContainerHighest,
         builder: (ctx) {
           return SizedBox(
             height: 300,
