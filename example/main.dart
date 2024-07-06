@@ -8,8 +8,7 @@ void main() async {
 }
 
 Future<void> repository() async {
-  final inMemoryDataSource = TodoInMemoryDataSource();
-  final todoRepository = TodoRepository(inMemoryDataSource);
+  final todoRepository = TodoRepository(TodoInMemoryDataSource());
 
   final todos = await todoRepository.fetch();
 
@@ -18,8 +17,7 @@ Future<void> repository() async {
 }
 
 void singleton() {
-  final inMemoryDataSource = TodoInMemoryDataSource();
-  final todoRepository = TodoSingletonRepository(inMemoryDataSource);
+  final todoRepository = TodoSingletonRepository(TodoInMemoryDataSource());
 
   final item = todoRepository.item;
   // ignore: avoid_print

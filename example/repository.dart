@@ -65,9 +65,9 @@ final class TodoInMemoryDataSource
 
 final class TodoRepository
     extends Repository<TodoId, TodoEntity, TodoRepositoryState> {
-  TodoRepository(this._api);
+  TodoRepository(this._dataSource);
 
-  final TodoDataSource _api;
+  final TodoDataSource _dataSource;
 
   /// The stream controller of repository's state.
   ///
@@ -80,7 +80,7 @@ final class TodoRepository
   // Stream<TodoRepositoryState> get states => _statesStreamController.stream;
 
   FutureOr<List<TodoEntity>> fetch() async {
-    final items = await _api.fetch();
+    final items = await _dataSource.fetch();
     cache.saveAll({for (final i in items) i.id: i});
     emit(TodoRepositoryTodoFetched(items));
     return items;
@@ -89,8 +89,8 @@ final class TodoRepository
 
 final class TodoSingletonRepository
     extends SingletonRepository<TodoEntity, TodoRepositoryState> {
-  TodoSingletonRepository(this._api);
+  TodoSingletonRepository(this._dataSource);
 
   // ignore: unused_field
-  final TodoDataSource _api;
+  final TodoDataSource _dataSource;
 }

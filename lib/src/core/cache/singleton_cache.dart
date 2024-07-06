@@ -1,7 +1,3 @@
-// ignore_for_file: use_setters_to_change_properties
-
-class ItemIsNull implements Exception {}
-
 /// {@template singleton_cache}
 /// This class stores an item of type [O] in memory.
 /// {@endtemplate}
@@ -14,6 +10,7 @@ class SingletonCache<O> {
   O? get item => _item;
 
   /// Saves the [value] in memory.
+  // ignore: use_setters_to_change_properties
   void save(O value) {
     _item = value;
   }
@@ -25,11 +22,12 @@ class SingletonCache<O> {
   ///  if item is null.
   O getOrThrow() {
     final item = _item;
-    if (item == null) throw ItemIsNull();
+    if (item == null) throw StateError('Item not found in repository.');
     return item;
   }
 
   /// Updates the stored item with [value].
+  // ignore: use_setters_to_change_properties
   void update(O value) {
     _item = value;
   }

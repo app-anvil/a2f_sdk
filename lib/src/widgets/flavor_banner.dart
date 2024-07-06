@@ -23,7 +23,7 @@ class FlavorBanner extends StatelessWidget {
           height: 55,
           child: CustomPaint(
             painter: BannerPainter(
-              message: flavor.value,
+              message: flavor.name,
               textDirection: Directionality.of(context),
               layoutDirection: Directionality.of(context),
               location: BannerLocation.topStart,

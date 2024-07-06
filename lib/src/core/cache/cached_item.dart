@@ -7,12 +7,17 @@ abstract interface class ICachedItem<Value> {
   abstract final SingletonCache<Value> cache;
 
   Value? get item;
+
+  Value getOrThrow();
 }
 
-base mixin CachedItem<Value> implements ICachedItem<Value> {
+mixin CachedItem<Value> implements ICachedItem<Value> {
   @override
   final SingletonCache<Value> cache = SingletonCache();
 
   @override
   Value? get item => cache.item;
+
+  @override
+  Value getOrThrow() => cache.getOrThrow();
 }

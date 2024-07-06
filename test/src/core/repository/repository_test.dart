@@ -3,8 +3,7 @@ import '../../../../example/repository.dart';
 
 void main() {
   group('Singleton repository', () {
-    final inMemoryDataSource = TodoInMemoryDataSource();
-    final todoRepository = TodoSingletonRepository(inMemoryDataSource);
+    final todoRepository = TodoSingletonRepository(TodoInMemoryDataSource());
 
     test('Get the current item', () {
       final item = todoRepository.item;
@@ -14,8 +13,7 @@ void main() {
   });
 
   group('Repository', () {
-    final inMemoryDataSource = TodoInMemoryDataSource();
-    final todoRepository = TodoRepository(inMemoryDataSource);
+    final todoRepository = TodoRepository(TodoInMemoryDataSource());
     test('Fetch todos', () async {
       final todos = await todoRepository.fetch();
 
