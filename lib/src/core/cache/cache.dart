@@ -2,8 +2,6 @@ export 'cached_collection.dart';
 export 'cached_item.dart';
 export 'singleton_cache.dart';
 
-class ItemNotFoundException implements Exception {}
-
 /// {@template cache}
 /// This class stores a collection of key/value pairs in memory.
 /// The [Key] type is used as a key in the inner map.
@@ -30,7 +28,7 @@ class Cache<Key, Value> {
   /// exception.
   Value getOrThrow(Key key) {
     final item = _items[key];
-    if (item == null) throw ItemNotFoundException();
+    if (item == null) throw StateError('Item with key $key not found.');
     return item;
   }
 
