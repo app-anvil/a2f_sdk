@@ -1,3 +1,5 @@
+import 'package:uuid/uuid.dart';
+
 const _kNumbers = '0123456789';
 const _kLcLetters = 'abcdefghijklmnopqrstuvwxyz';
 const _kUcLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -22,14 +24,31 @@ class UuidShortener {
 
   int get _base => alphabet.length;
 
+  /// Whether a string is a valid short string within the [alphabet].
+  bool isValidShort(String short) => short.split('').every(alphabet.contains);
+
   /// Shortens a UUID to a string in [alphabet].
   String shorten(String uuid) {
+    if (!Uuid.isValidUUID(fromString: uuid)) {
+      throw ArgumentError.value(
+        uuid,
+        'uuid',
+        'Invalid UUID: $uuid',
+      );
+    }
     final base10 = BigInt.parse(uuid.replaceAll('-', ''), radix: 16);
     return _toAlphabetString(base10);
   }
 
   /// Converts a string in [alphabet] to a UUID.
   String toUuid(String shortString) {
+    if (!isValidShort(shortString)) {
+      throw ArgumentError.value(
+        shortString,
+        'shortString',
+        'Invalid short UUID: $shortString',
+      );
+    }
     final base10 = _fromAlphabetString(shortString);
     final hex = base10.toRadixString(16);
     final hexUuid = hex.padLeft(32, '0');
@@ -66,5 +85,30 @@ class UuidShortener {
       result = result * base + alphabet.indexOf(str[i]).asBigInt;
     }
     return result;
+  }
+
+  /// Converts a string from alphabet to a UUID, if it is already a UUID do not
+  /// throw like [toUuid] does, just return the string itself.
+  String toUuidIfNotAlready(String input) {
+    // If the string is already a UUID, return it.
+    if (Uuid.isValidUUID(fromString: input)) {
+      return input;
+    }
+    return toUuid(input);
+  }
+
+  /// Converts a string from UUID to a short string, if it is already a short
+  /// string do not throw like [shorten] does, just return the string itself.
+  String shortenIfNotAlready(String input) {
+    // If the string is not a UUID, return it.
+    if (Uuid.isValidUUID(fromString: input)) {
+      return shorten(input);
+    }
+    if (isValidShort(input)) return input;
+    throw ArgumentError.value(
+      input,
+      'input',
+      'Invalid UUID: $input',
+    );
   }
 }
