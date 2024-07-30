@@ -1,6 +1,5 @@
 import 'package:a2f_sdk/a2f_sdk.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:uuid/uuid.dart';
 
 const _invalidShort = r'/&^/*$%?^8%$';
 
