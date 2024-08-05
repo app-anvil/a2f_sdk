@@ -4,33 +4,32 @@ import 'package:flutter/foundation.dart';
 import 'state_status.dart';
 
 @immutable
-abstract class SuperBlocState extends Equatable {
-  final String? errorMessage;
+abstract class SuperBlocState<Error> extends Equatable {
+  final Error? error;
   final StateStatus status;
 
   const SuperBlocState({
     required this.status,
-    required this.errorMessage,
+    required this.error,
   }) : assert(
-          status == StateStatus.failure && errorMessage != null ||
-              status != StateStatus.failure && errorMessage == null,
-          'When status is failure, errorMessage must be not null and vice '
-          'versa.',
+          status == StateStatus.failure && error != null ||
+              status != StateStatus.failure && error == null,
+          'When status is failure, error must be not null and vice versa.',
         );
 
   const SuperBlocState.initial()
       : this(
           status: StateStatus.initial,
-          errorMessage: null,
+          error: null,
         );
 
-  SuperBlocState copyWith({required StateStatus status});
+  SuperBlocState<Error> copyWith({required StateStatus status});
 
-  SuperBlocState copyWithError(String errorMessage);
+  SuperBlocState<Error> copyWithError(Error error);
 
   @override
   @mustCallSuper
-  List<Object?> get props => [status, errorMessage];
+  List<Object?> get props => [status, error];
 
   @override
   bool? get stringify => false;
