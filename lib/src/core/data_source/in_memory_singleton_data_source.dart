@@ -1,4 +1,3 @@
 import '../core.dart';
 
-abstract class InMemorySingletonDataSource<Key, Value>
-    with CachedItem<Value> {}
+abstract class InMemorySingletonDataSource<Key, Value> with CachedItem<Value> {}

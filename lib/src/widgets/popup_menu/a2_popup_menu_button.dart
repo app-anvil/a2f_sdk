@@ -1,6 +1,5 @@
+import 'package:flext/flext.dart';
 import 'package:flutter/material.dart';
-
-import '../../../a2f_sdk.dart';
 
 part 'a2_popup_menu_item.dart';
 

@@ -1,3 +1,5 @@
+import 'package:the_umpteenth_logger/the_umpteenth_logger.dart';
+
 import '../../../a2f_sdk.dart';
 
 /// The abstraction of the base repository.

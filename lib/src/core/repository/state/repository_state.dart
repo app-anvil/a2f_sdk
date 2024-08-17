@@ -1,4 +1,4 @@
-import '../../../../a2f_sdk.dart';
+import 'package:equatable/equatable.dart';
 
 /// Parent class for the states of the repositories.
 abstract class RepositoryState<Entity> extends Equatable {

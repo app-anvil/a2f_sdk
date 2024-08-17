@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:a2f_sdk/a2f_sdk.dart';
+import 'package:equatable/equatable.dart';
 
 typedef TodoId = int;
 
