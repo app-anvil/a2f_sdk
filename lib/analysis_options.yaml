@@ -22,6 +22,7 @@ linter:
     flutter_style_todos: false
     # library_private_types_in_public_api: false
     lines_longer_than_80_chars: true
+    one_member_abstracts: false
     prefer_const_constructors: true
     prefer_const_declarations: true
     prefer_const_literals_to_create_immutables: true
