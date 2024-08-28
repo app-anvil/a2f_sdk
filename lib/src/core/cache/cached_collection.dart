@@ -23,7 +23,7 @@ mixin CachedCollectionMixin<Key, Value>
   final Cache<Key, Value> cache = Cache();
 
   @override
-  List<Value> get items => cache.items;
+  List<Value> get items => cache.values;
 
   @override
   Value operator [](Key key) => cache.getOrThrow(key);
