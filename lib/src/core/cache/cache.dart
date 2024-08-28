@@ -1,5 +1,8 @@
+import 'immutable_cache.dart';
+
 export 'cached_collection.dart';
 export 'cached_item.dart';
+export 'immutable_cache.dart';
 export 'singleton_cache.dart';
 
 /// {@template cache}
@@ -9,7 +12,32 @@ export 'singleton_cache.dart';
 class Cache<Key, Value> {
   final _items = <Key, Value>{};
 
-  List<Value> get items => [..._items.values];
+  /// Creates a new instance of [Cache].
+  Cache();
+
+  /// Creates a new instance of [Cache] from another [Cache].
+  Cache.from(Cache<Key, Value> cache) {
+    _items.addAll(cache._items);
+  }
+
+  /// Creates a new instance of [Cache] from a [Map].
+  Cache.fromMap(Map<Key, Value> items) {
+    _items.addAll(items);
+  }
+
+  Cache<Key, Value> get immutable => ImmutableCache.from(this);
+
+  /// Gets all the keys of the cache.
+  List<Key> get keys => [..._items.keys];
+
+  /// Gets all the values of the cache.
+  List<Value> get values => [..._items.values];
+
+  /// Gets all the key/value pairs of the cache.
+  Map<Key, Value> get items => {..._items};
+
+  /// Gets all the key/value pairs of the cache as a list of [MapEntry].
+  List<MapEntry<Key, Value>> get entries => _items.entries.toList();
 
   /// Saves the [value] to this map
   void save(Key key, Value value) {
@@ -32,12 +60,6 @@ class Cache<Key, Value> {
     return item;
   }
 
-  /// Updates the [value] to this map if exists. Otherwise his behavior is the
-  /// same as save.
-  void update(Key key, Value value) {
-    _items[key] = value;
-  }
-
   /// Deletes the item with [key] from the map.
   void delete(Key key) {
     _items.remove(key);
@@ -46,5 +68,19 @@ class Cache<Key, Value> {
   /// Deletes all key/value pairs of [items] from the map.
   void clear() {
     _items.clear();
+  }
+
+  /// Deletes all items with key in [keys] from the map.
+  void deleteAll(Iterable<Key> keys) {
+    for (final key in keys) {
+      _items.remove(key);
+    }
+  }
+
+  /// Replaces all items in the cache with the items in [items].
+  void replaceAll(Map<Key, Value> items) {
+    _items
+      ..clear()
+      ..addAll(items);
   }
 }
