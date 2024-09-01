@@ -10,7 +10,7 @@ abstract interface class ICachedCollection<Key, Value> {
 
   Value operator [](Key key);
 
-  Value? get(Key key);
+  Value? get(Key key, {Value Function()? orElse});
 
   Value getOrThrow(Key key);
 }
@@ -29,7 +29,8 @@ mixin CachedCollectionMixin<Key, Value>
   Value operator [](Key key) => cache.getOrThrow(key);
 
   @override
-  Value? get(Key key) => cache.get(key);
+  Value? get(Key key, {Value Function()? orElse}) =>
+      cache.get(key, orElse: orElse);
 
   @override
   Value getOrThrow(Key key) => cache.getOrThrow(key);

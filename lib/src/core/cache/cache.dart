@@ -50,15 +50,26 @@ class Cache<Key, Value> {
   }
 
   /// Get the item by [key] if exists, otherwise returns null.
-  Value? get(Key key) => _items[key];
+  ///
+  /// If [orElse] is provided, it will be called and its result will be returned
+  /// if the item does not exist.
+  Value? get(Key key, {Value Function()? orElse}) {
+    final item = _items[key];
+    if (item != null) return item;
+    if (orElse != null) return orElse();
+    return null;
+  }
 
   /// Returns the item by [key]. If it does not exist it throws a `ItemNotFound`
   /// exception.
-  Value getOrThrow(Key key) {
-    final item = _items[key];
-    if (item == null) throw StateError('Item with key $key not found.');
-    return item;
-  }
+  Value getOrThrow(Key key) => get(
+        key,
+        orElse: () => throw ArgumentError.value(
+          key,
+          'key',
+          'Item with key $key not found.',
+        ),
+      )!;
 
   /// Deletes the item with [key] from the map.
   void delete(Key key) {
