@@ -1,6 +1,6 @@
 name: a2f_sdk
 description: App Anvil Flutter SDK
-version: 5.2.1
+version: 5.3.0
 publish_to: none
 
 environment:

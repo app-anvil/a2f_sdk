@@ -6,3 +6,4 @@ import '../../a2f_sdk.dart';
 abstract class Model with EquatableMixin, ModelToStringMixin {
   const Model();
 }
+
