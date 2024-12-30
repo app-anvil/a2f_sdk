@@ -1,4 +1,20 @@
+import 'package:flext/flext.dart';
 import 'package:flutter/foundation.dart';
+
+abstract interface class IModel {
+  /// Returns a verbose string representation of this class.
+  /// By default it includes all the fields of the class, but it can be
+  /// configured to include only a subset of them by setting the [fieldCount]
+  /// parameter.
+  ///
+  /// [fieldCount] must be >= 1.
+  String toStringVerbose({int? fieldCount});
+
+  /// Returns a short string representation of this class that includes only
+  /// the [field] parameter value. If [field] is not provided, it defaults to
+  /// the first field returned by the `$toMap` method.
+  String toShortString({dynamic field});
+}
 
 /// Mixin to provide a way to a class with many fields to be logged without
 /// being too verbose in the output logs.
@@ -10,7 +26,7 @@ import 'package:flutter/foundation.dart';
 /// output. By default it prints all the fields of the class, but it can be
 /// configured to print only a subset of them by passing the fieldCount
 /// parameter.
-mixin ModelToStringMixin {
+mixin ModelToStringMixin implements IModel {
   /// The name of the model.
   ///
   /// It is used when printing this model to identify the model type.
@@ -21,12 +37,7 @@ mixin ModelToStringMixin {
   @override
   String toString() => toStringVerbose(fieldCount: 3);
 
-  /// Returns a verbose string representation of this class.
-  /// By default it includes all the fields of the class, but it can be
-  /// configured to include only a subset of them by setting the [fieldCount]
-  /// parameter.
-  ///
-  /// [fieldCount] must be >= 1.
+  @override
   @nonVirtual
   String toStringVerbose({int? fieldCount}) {
     assert(fieldCount == null || fieldCount > 0, '');
@@ -44,4 +55,12 @@ mixin ModelToStringMixin {
   /// [toString] will print those first.
   @protected
   Map<String, dynamic> $toMap();
+
+  @override
+  String toShortString({dynamic field}) {
+    final map = $toMap();
+    final oneMember =
+        (field != null ? map[field] : null) ?? map.values.firstOr('');
+    return '${$modelName}{$oneMember}';
+  }
 }
