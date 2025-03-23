@@ -1,6 +1,6 @@
 name: a2f_sdk
 description: App Anvil Flutter SDK
-version: 7.1.0
+version: 7.2.0
 publish_to: none
 
 environment:
@@ -9,7 +9,7 @@ environment:
 
 dependencies:
   equatable: ^2.0.5
-  flext: ^1.2.0
+  flext_core: ^0.5.0+1
   flutter: { sdk: flutter }
   formz: ^0.7.0
   intl: ^0.19.0

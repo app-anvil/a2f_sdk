@@ -1,4 +1,4 @@
-import 'package:flext/flext.dart';
+import 'package:flext_core/flext_core.dart';
 import 'package:flutter/material.dart';
 
 part 'a2_popup_menu_item.dart';

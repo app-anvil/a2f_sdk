@@ -1,4 +1,4 @@
-import 'package:flext/flext.dart';
+import 'package:flext_core/flext_core.dart';
 import 'package:flutter/foundation.dart';
 
 abstract interface class IModel {
