@@ -8,9 +8,11 @@ environment:
   flutter: '>=3.10.0'
 
 dependencies:
+  bloc_concurrency: ^0.3.0
   equatable: ^2.0.5
   flext_core: ^0.5.0+1
   flutter: { sdk: flutter }
+  flutter_bloc: ^9.1.0
   formz: ^0.7.0
   intl: ^0.19.0
   meta: ^1.10.0

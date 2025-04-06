@@ -42,7 +42,6 @@ mixin ObservableMixin<S> on LoggerMixin {
   /// This method should be called when the instance is no longer needed.
   /// Once [close] is called, the instance can no longer be used.
   @mustCallSuper
-  @protected
   Future<void> close() async {
     await _subject.close();
   }
