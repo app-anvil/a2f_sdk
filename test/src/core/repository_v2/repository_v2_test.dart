@@ -86,15 +86,14 @@ class _RepoDeleteItemEvent extends _RepoEvent {
   String toString() => 'RepoDeleteItemEvent(id: $id)';
 }
 
-class _RepoV2
-    extends RepositoryV2<String, _Item, _RepoEvent, RepositoryState<_Item>> {
+class _RepoV2 extends RepositoryV2<String, _Item, _RepoEvent,
+    RepositoryState<_Item>> {
   _RepoV2() {
     on<_RepoFetchEvent, List<_Item>>((event, emit) => _fetch(emit));
     on<_RepoUpdateItemEvent, _Item>(
       (event, emit) => _update(event.id, event.newValue, emit),
     );
     on<_RepoDeleteItemEvent, _Item>((event, emit) => _delete(event.id, emit));
-    register();
   }
 
   Future<List<_Item>> _fetch(Emitter<RepositoryState<_Item>?> emit) async {
@@ -197,6 +196,7 @@ void main() {
         ]),
         throwsA(isA<ArgumentError>()),
       );
+      // The item has been deleted. It's the update that failed.
       expect(repoV2.get(id), isNull);
       expect(repoV2.items.length, count - 1);
     });

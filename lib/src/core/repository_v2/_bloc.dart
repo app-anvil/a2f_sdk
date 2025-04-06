@@ -1,6 +1,7 @@
 part of 'repository_v2.dart';
 
 typedef RepositoryV2EventOnSuccess<R> = void Function(R result);
+
 typedef RepositoryV2EventOnError = void Function(
   Object error,
   StackTrace stackTrace,
