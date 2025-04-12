@@ -13,6 +13,9 @@ class RepositoryCollectionFetched<Entity> extends RepositoryState<Entity> {
 
   @override
   List<Object?> get props => [items];
+
+  @override
+  String toString() => 'RepositoryCollectionFetched { items: ${items.length} }';
 }
 
 /// State for when an item is fetched.

@@ -4,3 +4,4 @@ export 'data_source/data_source.dart';
 export 'mixin/mixin.dart';
 export 'models/models.dart';
 export 'repository/repository.dart';
+export 'repository_v2/repository_v2.dart';
