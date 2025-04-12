@@ -5,6 +5,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:the_umpteenth_logger/the_umpteenth_logger.dart';
 
+export 'repository_v2_event.dart';
+export 'repository_v2_state.dart';
+
 part '_bloc.dart';
 
 /// Event handler function for repository events.

@@ -27,7 +27,7 @@ class InputWithTitle extends StatelessWidget {
         Text(
           title.toUpperCase(),
           style: context.tt.labelSmall?.copyWith(
-            color: context.col.onBackground,
+            color: context.col.onSurface,
           ),
         ),
         VSpan($style.insets.xxs),
