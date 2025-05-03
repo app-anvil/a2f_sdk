@@ -73,7 +73,7 @@ class AppStyleInsets {
   //*****************
   double get card => md;
 
-  double get screenH => md;
+  double get screenH => sm;
 }
 
 @immutable
