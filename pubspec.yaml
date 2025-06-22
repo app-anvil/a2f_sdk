@@ -20,7 +20,7 @@ dependencies:
   rxdart: ^0.27.5
   the_umpteenth_logger:
     git:
-      url: git@github.com:gianmarcocalbi/the_umpteenth_logger.git
+      url: https://github.com/gianmarcocalbi/the_umpteenth_logger.git
       path: packages/the_umpteenth_logger
       ref: 1.1.0
   uuid: ^4.5.1
