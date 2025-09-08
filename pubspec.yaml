@@ -1,6 +1,6 @@
 name: a2f_sdk
 description: App Anvil Flutter SDK
-version: 7.4.0
+version: 8.0.0
 publish_to: none
 
 environment:
@@ -15,18 +15,18 @@ dependencies:
   flutter_bloc: ^9.1.0
   formz: ^0.7.0
   fpdart: ^1.1.1
-  intl: ^0.19.0
+  intl: ^0.20.2
   meta: ^1.10.0
   rxdart: ^0.27.5
   the_umpteenth_logger:
     git:
       url: https://github.com/gianmarcocalbi/the_umpteenth_logger.git
       path: packages/the_umpteenth_logger
-      ref: 1.1.0
+      ref: 1.2.0
   uuid: ^4.5.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   mocktail: ^1.0.0
-  very_good_analysis: ^6.0.0
+  very_good_analysis: ^9.0.0

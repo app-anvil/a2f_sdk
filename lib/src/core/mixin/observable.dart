@@ -1,5 +1,3 @@
-// ignore_for_file: comment_references
-
 import 'dart:async';
 
 import 'package:meta/meta.dart';
@@ -15,14 +13,14 @@ mixin ObservableMixin<S> on LoggerMixin {
   /// It does not emit the last event when a new listener subscribes to it.
   final _subject = PublishSubject<S>();
 
-  /// Whether the [stream] is closed.
+  /// Whether the stream is closed.
   ///
   /// If true the stream cannot be listened to and the [emit] function must
   /// not be called.
   @nonVirtual
   bool get isClosed => _subject.isClosed;
 
-  /// Emits a new [newState] to the [stream].
+  /// Emits a new [newState] to the stream.
   ///
   ///
   /// This method should not be called after [close] is called.

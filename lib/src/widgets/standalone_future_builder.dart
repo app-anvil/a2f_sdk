@@ -40,8 +40,7 @@ class _StandaloneFutureBuilderState<T>
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done &&
             snapshot.hasData) {
-          // ignore: null_check_on_nullable_type_parameter
-          return widget.builder(context, snapshot.data!);
+          return widget.builder(context, snapshot.data as T);
         } else if (snapshot.connectionState == ConnectionState.done &&
             snapshot.hasError) {
           return widget.errorBuilder(

@@ -1,5 +1,5 @@
 /// App Anvil Flutter SDK
-library a2f_sdk;
+library;
 
 export 'src/config/config.dart';
 export 'src/core/core.dart';

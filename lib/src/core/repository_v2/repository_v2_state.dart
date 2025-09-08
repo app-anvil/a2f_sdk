@@ -32,11 +32,10 @@ class RepoV2CollectionFetchSuccess<Entity> extends RepositoryV2State<Entity> {
 }
 
 /// State for when a collection of items is fetched with an error.
-class RepoV2CollectionFetchError<Entity, Error>
-    extends RepositoryV2State<Entity> {
+class RepoV2CollectionFetchError<Entity, E> extends RepositoryV2State<Entity> {
   const RepoV2CollectionFetchError(this.error);
 
-  final Error error;
+  final E error;
 
   @override
   List<Object?> get props => [error];
@@ -72,15 +71,14 @@ class RepoV2ItemFetchSuccess<Entity> extends RepositoryV2State<Entity> {
 }
 
 /// State for when fetching an item fails.
-class RepoV2ItemFetchError<Id, Entity, Error>
-    extends RepositoryV2State<Entity> {
+class RepoV2ItemFetchError<Id, Entity, E> extends RepositoryV2State<Entity> {
   const RepoV2ItemFetchError({
     required this.id,
     required this.error,
   });
 
   final Id id;
-  final Error error;
+  final E error;
 
   @override
   List<Object?> get props => [error, id];
@@ -116,14 +114,14 @@ class RepoV2ItemAddSuccess<Entity> extends RepositoryV2State<Entity> {
 }
 
 /// State for when adding an existing item to the repository fails.
-class RepoV2ItemAddError<Entity, Error> extends RepositoryV2State<Entity> {
+class RepoV2ItemAddError<Entity, E> extends RepositoryV2State<Entity> {
   const RepoV2ItemAddError({
     required this.item,
     required this.error,
   });
 
   final Entity item;
-  final Error error;
+  final E error;
 
   @override
   List<Object?> get props => [error, item];
@@ -160,7 +158,7 @@ class RepoV2ItemCreateSuccess<Entity> extends RepositoryV2State<Entity> {
 }
 
 /// State for when creating a new item in the repository fails.
-class RepoV2ItemCreateError<Input, Entity, Error>
+class RepoV2ItemCreateError<Input, Entity, E>
     extends RepositoryV2State<Entity> {
   const RepoV2ItemCreateError({
     required this.input,
@@ -168,7 +166,7 @@ class RepoV2ItemCreateError<Input, Entity, Error>
   });
 
   final Input input;
-  final Error error;
+  final E error;
 
   @override
   List<Object?> get props => [error, input];
@@ -205,15 +203,14 @@ class RepoV2ItemDeleteSuccess<Entity> extends RepositoryV2State<Entity> {
 }
 
 /// State for when deleting an item from the repository fails.
-class RepoV2ItemDeleteError<Id, Entity, Error>
-    extends RepositoryV2State<Entity> {
+class RepoV2ItemDeleteError<Id, Entity, E> extends RepositoryV2State<Entity> {
   const RepoV2ItemDeleteError({
     required this.id,
     required this.error,
   });
 
   final Id id;
-  final Error error;
+  final E error;
 
   @override
   List<Object?> get props => [error, id];

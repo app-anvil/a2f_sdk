@@ -4,7 +4,7 @@ const _kNumbers = '0123456789';
 const _kLcLetters = 'abcdefghijklmnopqrstuvwxyz';
 const _kUcLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 // const _kSymbols = '-.~_';
-const _kUrlSafeAlphabet = _kNumbers + _kLcLetters + _kUcLetters;
+const String _kUrlSafeAlphabet = _kNumbers + _kLcLetters + _kUcLetters;
 
 extension _ToBigIntExtension on int {
   BigInt get asBigInt => BigInt.from(this);

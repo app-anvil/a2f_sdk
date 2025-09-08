@@ -1,4 +1,5 @@
 import 'package:a2f_sdk/a2f_sdk.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:uuid/uuid.dart';
@@ -86,8 +87,8 @@ class _RepoDeleteItemEvent extends _RepoEvent {
   String toString() => 'RepoDeleteItemEvent(id: $id)';
 }
 
-class _RepoV2 extends RepositoryV2<String, _Item, _RepoEvent,
-    RepositoryState<_Item>> {
+class _RepoV2
+    extends RepositoryV2<String, _Item, _RepoEvent, RepositoryState<_Item>> {
   _RepoV2() {
     on<_RepoFetchEvent, List<_Item>>((event, emit) => _fetch(emit));
     on<_RepoUpdateItemEvent, _Item>(
@@ -134,22 +135,19 @@ class _BlocObserver extends BlocObserver {
   @override
   void onEvent(Bloc<dynamic, dynamic> bloc, Object? event) {
     super.onEvent(bloc, event);
-    // ignore: avoid_print
-    print('${bloc.runtimeType} $event');
+    debugPrint('${bloc.runtimeType} $event');
   }
 
   @override
   void onChange(BlocBase<dynamic> bloc, Change<dynamic> change) {
     super.onChange(bloc, change);
-    // ignore: avoid_print
-    print('${bloc.runtimeType} $change');
+    debugPrint('${bloc.runtimeType} $change');
   }
 
   @override
   void onError(BlocBase<dynamic> bloc, Object error, StackTrace stackTrace) {
     super.onError(bloc, error, stackTrace);
-    // ignore: avoid_print
-    print('${bloc.runtimeType} $error\n$stackTrace');
+    debugPrint('${bloc.runtimeType} $error\n$stackTrace');
   }
 }
 

@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart' show debugPrint;
+
 import 'repository.dart';
 
 void main() async {
@@ -12,14 +14,12 @@ Future<void> repository() async {
 
   final todos = await todoRepository.fetch();
 
-  // ignore: avoid_print
-  print('$todos');
+  debugPrint('$todos');
 }
 
 void singleton() {
   final todoRepository = TodoSingletonRepository(TodoInMemoryDataSource());
 
   final item = todoRepository.item;
-  // ignore: avoid_print
-  print('$item');
+  debugPrint('$item');
 }

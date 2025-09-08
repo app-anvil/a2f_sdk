@@ -4,8 +4,8 @@ import 'package:flutter/foundation.dart';
 import 'state_status.dart';
 
 @immutable
-abstract class SuperBlocState<Error> extends Equatable {
-  final Error? error;
+abstract class SuperBlocState<E> extends Equatable {
+  final E? error;
   final StateStatus status;
 
   const SuperBlocState({
@@ -23,9 +23,9 @@ abstract class SuperBlocState<Error> extends Equatable {
           error: null,
         );
 
-  SuperBlocState<Error> copyWith({required StateStatus status});
+  SuperBlocState<E> copyWith({required StateStatus status});
 
-  SuperBlocState<Error> copyWithError(Error error);
+  SuperBlocState<E> copyWithError(E error);
 
   @override
   @mustCallSuper

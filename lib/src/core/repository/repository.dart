@@ -5,10 +5,9 @@ export 'singleton_repository.dart';
 export 'state/state.dart';
 
 /// The abstraction of the repository that handles a collection of items of type
-/// [Entity]
+/// [E]
 ///
 /// [Key] is the type of the key of the cache. Typically is the id of the
-/// [Entity].
-abstract class Repository<Key, Entity, State>
-    extends BaseRepository<Entity, State>
-    with CachedCollectionMixin<Key, Entity> {}
+/// entity [E].
+abstract class Repository<Key, E, State> extends BaseRepository<E, State>
+    with CachedCollectionMixin<Key, E> {}

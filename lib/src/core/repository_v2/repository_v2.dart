@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:bloc_concurrency/bloc_concurrency.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:meta/meta.dart';
 import 'package:the_umpteenth_logger/the_umpteenth_logger.dart';
 
 export 'repository_v2_event.dart';
@@ -259,6 +259,8 @@ abstract class RepositoryV2<Key, Entity, Event, State> with LoggerMixin {
       }
       // Call the onSuccess callback with the result
       event.onSuccess?.call(result);
+      // Catch everything
+      // ignore: avoid_catches_without_on_clauses
     } catch (e, s) {
       // If an error occurs, we ignore it and let the onError callback handle
       // it.

@@ -44,7 +44,6 @@ final class TodoRepositoryTodoFetched extends TodoRepositoryState {
   List<Object?> get props => [todos];
 }
 
-// ignore: one_member_abstracts
 abstract interface class TodoDataSource {
   FutureOr<List<TodoEntity>> fetch();
 }
@@ -92,6 +91,7 @@ final class TodoSingletonRepository
     extends SingletonRepository<TodoEntity, TodoRepositoryState> {
   TodoSingletonRepository(this._dataSource);
 
+  // Testing
   // ignore: unused_field
   final TodoDataSource _dataSource;
 }
