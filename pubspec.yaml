@@ -22,7 +22,7 @@ dependencies:
     git:
       url: https://github.com/gianmarcocalbi/the_umpteenth_logger.git
       path: packages/the_umpteenth_logger
-      ref: 1.2.0
+      ref: 1.3.0
   uuid: ^4.5.1
 
 dev_dependencies:
